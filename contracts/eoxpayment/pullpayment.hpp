@@ -32,5 +32,5 @@ public:
   * @param _amount The amount to transfer.
   */
  /// @abi action
-  void atransfer(account_name _dest, uint64_t _amount);
+  void ptransfer(account_name _dest, uint64_t _amount);
 };

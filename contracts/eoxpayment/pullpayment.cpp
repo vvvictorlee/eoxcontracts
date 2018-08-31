@@ -39,8 +39,8 @@
   * @param _dest The destination account_name of the funds.
   * @param _amount The amount to transfer.
   */
-  void PullPayment::atransfer(account_name _dest, uint64_t _amount)  {
+  void PullPayment::ptransfer(account_name _dest, uint64_t _amount)  {
     escrow.deposit(_dest,_amount);
   }
 // }
-EOSIO_ABI(PullPayment, (atransfer)(withdrawpay))
+EOSIO_ABI(PullPayment, (ptransfer)(withdrawpay))

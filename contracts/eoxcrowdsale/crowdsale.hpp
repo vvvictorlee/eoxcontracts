@@ -15,11 +15,11 @@
  * the methods to add functionality. Consider using 'super' where appropriate to concatenate
  * behavior.
  */
-class Crowdsale{
+class Crowdsale:public eosio::contract{
   // using SafeMath for uint64_t;
   // using SafeERC20 for ERC20;
   public:
-  
+  Crowdsale( account_name self ):contract(self){}
 
  
   // The token being sold
@@ -73,7 +73,8 @@ class Crowdsale{
    * @dev low level token purchase ***DO NOT OVERRIDE***
    * @param _beneficiary Address performing the token purchase
    */
-   void buyTokens(account_name _beneficiary) ;
+  /// @abi action
+   void buytokens(account_name _beneficiary,uint64_t value);
 
   // -----------------------------------------
   // Internal interface (extensible)

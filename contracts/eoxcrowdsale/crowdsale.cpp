@@ -54,7 +54,7 @@
    * @param _wallet Address where collected funds will be forwarded to
    * @param _token Address of the token being sold
    */
-  Crowdsale::Crowdsale(uint64_t _rate, account_name _wallet, EOXToken* _token){
+  Crowdsale::Crowdsale(uint64_t _rate, account_name _wallet, EOXToken* _token):contract(_wallet){
     eosio_assert(_rate > 0,"");
     eosio_assert(_wallet != account_name(0),"");
     // eosio_assert(_token != account_name(0),"");
@@ -79,11 +79,11 @@
    * @dev low level token purchase ***DO NOT OVERRIDE***
    * @param _beneficiary Address performing the token purchase
    */
-   void Crowdsale::buyTokens(account_name _beneficiary) 
+   void Crowdsale::buytokens(account_name _beneficiary,uint64_t value) 
   //  public payable 
    {
 
-    uint64_t weiAmount = 0;//msg.value;
+    uint64_t weiAmount = value;
     _preValidatePurchase(_beneficiary, weiAmount);
 
     // calculate token amount to be created
@@ -202,3 +202,4 @@
     token->transfer(wallet,amount);
   }
 // }
+EOSIO_ABI(Crowdsale, (buytokens))

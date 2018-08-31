@@ -1,4 +1,4 @@
-// pragma solidity ^0.4.24;
+#pragma once
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
 
