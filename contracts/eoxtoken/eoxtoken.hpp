@@ -1,13 +1,16 @@
-// 
-#pragma once
+// pragma solidity ^0.4.24;
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
 
 // #include "./ERC20Basic.hpp"
-// #include "../../math/SafeMath.hpp"
+// #include "../../math/SafeMath.hpp";
 // #include "../../math/uint64_t.h";
 using namespace eosio;
 // typedef uint64_t uint64_t
+
+// 如果接收方是智能合约，则发送方必须通过“approve（）”和“transferFrom（）”两个函数的组合使用机制来转移通证，而如果接收方是外部拥有账户，则发送方必须通过“transfer（）”函数转移通证。
+// 如果用户由于失误选择了错误的函数，那么通证将卡在智能合约内（智能合约将无法识别交易），而且并没有可行的方法来提取被卡住的通证。
+
 /**
  * @title Basic token
  * @dev Basic version of StandardToken, with no allowances.
@@ -96,6 +99,9 @@ void add_abalance(account_name from,account_name sender, uint64_t value);
   /// @abi action
   void approve(account_name _spender, uint64_t _value);
 
+// 6. 限额(allowance)
+// 为了准确地执行交易，智能合约需要知道的一个最重要数据就是用户的余额。毕竟，用户至少应该拥有与交易金额相等的通证才能进行交易。
+// 这就是为什么ERC-20智能合约还包括包含allowance（）函数的原因。 如果用户没有所需的最小通证数，则allowance（）函数会取消该交易。
   /**
    * @dev Function to check the amount of tokens that an owner allowed to a spender.
    * @param _owner account_name The account_name which owns the funds.

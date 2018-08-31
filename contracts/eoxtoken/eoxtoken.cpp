@@ -1,4 +1,4 @@
-// 
+// pragma solidity ^0.4.24;
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/asset.hpp>
 
@@ -7,6 +7,10 @@
 // #include "../../math/SafeMath.hpp";
 // #include "../../math/uint64_t.h";
 using namespace eosio;
+
+
+// 如果接收方是智能合约，则发送方必须通过“approve（）”和“transferFrom（）”两个函数的组合使用机制来转移通证，而如果接收方是外部拥有账户，则发送方必须通过“transfer（）”函数转移通证。
+// 如果用户由于失误选择了错误的函数，那么通证将卡在智能合约内（智能合约将无法识别交易），而且并没有可行的方法来提取被卡住的通证。
 
 /**
   * @dev Transfer token for a specified account_name
