@@ -17,5 +17,6 @@ eos下contracts的CMakelists.txt中加入
 contracts下的文件夹加到eos/contracts里
 unittests下的文件加到eos/unittests里
 初步可以编译通过。
-进一步测试还在进行中。。。
+进一步测试还在进行中。。。  
+
 2018.8.31 开学前一天
